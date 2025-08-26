@@ -1,27 +1,25 @@
 name: Python 3.11
-
 on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: "3.11"
 
       - name: Install dependencies
         run: |
-          make install
+          pip install -r requirements.txt
 
       - name: Lint
         run: |
-          make lint
+          flake8 .
 
       - name: Test
         run: |
-          make test
+          pytest
