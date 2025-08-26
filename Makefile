@@ -1,8 +1,12 @@
 install:
-	pip install -r requirements.txt
+	pip install --upgrade pip &&\
+		pip install -r requirements.txt
 
 lint:
-	flake8 .
+	pylint --disable=R,C random.py
+
+format:
+	black *.py
 
 test:
-	pytest
+	python random.py
