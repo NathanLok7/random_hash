@@ -1,6 +1,6 @@
-# random_hash.py
 import uuid
 import sys
+
 
 def main():
     for attempt in range(1, 1001):  # 1000 attempts
@@ -10,6 +10,7 @@ def main():
             sys.exit(0)
     print("FAIL: No matching hash found in 1000 attempts.")
     sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
